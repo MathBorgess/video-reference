@@ -1,0 +1,29 @@
+{
+  "name": "@mathborgess/video-reference",
+  "version": "0.1.0",
+  "description": "Local video reference libraries and HyperFrames direction for agents",
+  "type": "module",
+  "bin": {
+    "video-reference": "bin/video-reference.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check bin/video-reference.mjs && node --test"
+  },
+  "files": [
+    "bin",
+    "src",
+    "docs",
+    "README.md",
+    "LICENSE"
+  ],
+  "license": "MIT",
+  "author": "Matheus Borges",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MathBorgess/video-reference.git"
+  }
+}
