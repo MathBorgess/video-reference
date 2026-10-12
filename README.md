@@ -59,12 +59,14 @@ Changing a connected event or combining references returns `confirmation_require
 - Keep project media, analysis and decisions outside this public source repository.
 - After an interrupted write, inspect `.write-lock/owner.json` and ensure the writer is gone before removing a stale lock. A killed process can leave temporary `.ingest-*`, `.evidence-*` or `.handoff-*` directories; review before cleanup. Original copies and revisions are preserved.
 
-See [analysis and evidence](docs/analysis.md), [HyperFrames handoff](docs/hyperframes.md), and [architecture and sources](docs/architecture.md).
+See [analysis and evidence](docs/analysis.md), [local audio and motion workflow](docs/local-analysis.md), [HyperFrames handoff](docs/hyperframes.md), and [architecture and sources](docs/architecture.md).
 
 ## Validation and limits
 
 Run `npm run check` and `npm pack --dry-run`. Tests use synthetic media to verify persistence, relation closure, integrity, decisions and CLI behavior. Coverage is an agent attestation; schemas cannot prove the agent watched or heard a video. No real-video fidelity result is claimed. The pilot must compare a reconstructed critical interval against a user-selected local video, including text, graphics, motion and sound.
 
 This release does not perform ASR, OCR, beat detection, automatic motion reconstruction or remote transcript retrieval. The agent can use available local tools and preserve their evidence/provenance. Do not substitute sampled frames for listening or invent measurements.
+
+A three-video local pilot exercised the workflow with all decoded frames, native sound classification, signal measurements and local MLX transcription. It exposed a repetitive Base ASR failure that Small recovered, and motion overshoot that sparse samples missed. These are observation-method findings, not new built-in CLI features or a completed fidelity test. See the [future acoustic-analysis study](https://github.com/MathBorgess/video-reference/issues/2).
 
 MIT. Interface and reference-workflow research informed this design; no Cloudflare or Hypit code or skill text is bundled.
