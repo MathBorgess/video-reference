@@ -19,4 +19,4 @@ For full CLI use on another machine, transfer the complete project through an au
 
 ## Start a new edit
 
-Give the agent the target local video, the reference project or text snapshot, the desired audience/duration and which layers may change. Ask it to propose relevant references with intervals, reusable behavior, dependencies and uncertainties. Or name one exact reference and layer directly. Once the proposal is selected, use `schema adaptation`/`handoff` and present affected relationships for the human's decision. HyperFrames owns the subsequent composition, preview and rendering.
+Give the agent the target local video, the reference project or text snapshot, the desired audience/duration and which layers may change. Ask it to propose relevant references with intervals, reusable behavior, dependencies and uncertainties. Or name one exact reference and layer directly. Once the proposal is selected, use `schema adaptation`/`handoff` and present affected relationships for the human's decision. Remotion owns the subsequent composition and Studio review. Export requires an explicit request.
