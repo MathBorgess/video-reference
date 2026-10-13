@@ -11,7 +11,7 @@ Requires Node.js 22+. Media ingestion and inspection require `ffmpeg` and `ffpro
 During initial review, the implementation is on `codex/initial-cli`. After its PR merges, use `main` instead:
 
 ```bash
-git clone --branch codex/initial-cli https://github.com/MathBorgess/video-reference.git
+git clone --branch main https://github.com/MathBorgess/video-reference.git
 cd video-reference
 npm install --global .
 video-reference doctor

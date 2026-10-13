@@ -21,7 +21,7 @@ function emit(status, data) {
 function help(command) {
   return {
     purpose:
-      "Preserve and retrieve local video references for detailed HyperFrames direction.",
+      "Preserve and retrieve local video references for detailed Remotion direction.",
     usage: "video-reference <command> [args] --project <directory>",
     commands: command ? { [command]: commands[command] } : commands,
     next: "doctor → init → ingest → inspect → template → agent analysis → save → search/read → handoff. Use schema analysis for the document contract. Load the video-reference skill for interpretation; extraction is not analysis.",
