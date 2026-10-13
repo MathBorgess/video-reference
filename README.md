@@ -1,8 +1,8 @@
 # video-reference
 
-Preserve local videos as reusable, layered references for agents directing **HyperFrames** edits. Each project is an independent folder. Originals are deduplicated inside that folder; analysis revisions and evidence stay traceable.
+Preserve local videos as reusable, layered references for agents directing **Remotion** edits. Each project is an independent folder. Originals are deduplicated inside that folder; analysis revisions and evidence stay traceable.
 
-The CLI prepares and stores evidence. Your current agent interprets the video using the **video-reference skill** in [skills-catalog](https://github.com/MathBorgess/skills-catalog). HyperFrames builds and renders the result. There are no model API calls, uploads, telemetry, background services or runtime npm dependencies.
+The CLI prepares and stores evidence. Your current agent interprets the video using the **video-reference skill** in [skills-catalog](https://github.com/MathBorgess/skills-catalog). Remotion builds and renders the result. There are no model API calls, uploads, telemetry, background services or runtime npm dependencies.
 
 ## Install
 
@@ -36,7 +36,7 @@ video-reference save ./analysis.json --project ./my-references
 video-reference search "word reveal" --project ./my-references
 video-reference search '*' --project ./my-references
 video-reference read <reference-id> --layers audio --project ./my-references
-video-reference handoff <reference-id> --target hyperframes --project ./my-references
+video-reference handoff <reference-id> --target remotion --project ./my-references
 video-reference check --project ./my-references
 ```
 
@@ -48,7 +48,7 @@ Read `schema adaptation` and prepare changes against exact event IDs and revisio
 
 Changing a connected event or combining references returns `confirmation_required` (exit 4), with affected relations and a decision template. Present the proposal to the human. Only after an actual response, record it with `decide <handoff-id> <approval-file>`. The CLI records an attestation; it cannot authenticate a conversation. It never invents consent or renders. Unresolved dependencies, incomplete analysis, wrong proposal IDs and stale revisions are rejected.
 
-`handoffs/<id>/DIRECTION.md` and `packet.json` carry detailed HyperFrames direction. They do not create an approved BRIEF or executable composition. Relative media paths resolve from the library root, not the handoff directory. Keep the project folder together when moving it.
+`handoffs/<id>/DIRECTION.md` and `packet.json` carry detailed Remotion direction. They do not create an approved BRIEF or executable composition. Relative media paths resolve from the library root, not the handoff directory. Keep the project folder together when moving it.
 
 ## Agent interface
 
@@ -59,7 +59,7 @@ Changing a connected event or combining references returns `confirmation_require
 - Keep project media, analysis and decisions outside this public source repository.
 - After an interrupted write, inspect `.write-lock/owner.json` and ensure the writer is gone before removing a stale lock. A killed process can leave temporary `.ingest-*`, `.evidence-*` or `.handoff-*` directories; review before cleanup. Original copies and revisions are preserved.
 
-See [analysis and evidence](docs/analysis.md), [local audio and motion workflow](docs/local-analysis.md), [HyperFrames handoff](docs/hyperframes.md), and [architecture and sources](docs/architecture.md).
+See [analysis and evidence](docs/analysis.md), [local audio and motion workflow](docs/local-analysis.md), [Remotion handoff](docs/remotion.md), and [architecture and sources](docs/architecture.md).
 
 ## Validation and limits
 

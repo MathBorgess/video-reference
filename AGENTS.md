@@ -1,6 +1,6 @@
 # video-reference
 
-Local reference preparation and storage belong to the CLI; audiovisual interpretation belongs to the agent skill; composition and rendering belong to HyperFrames.
+Local reference preparation and storage belong to the CLI; audiovisual interpretation belongs to the agent skill; composition and rendering belong to Remotion.
 
 - Work on a `codex/` branch and PR. Do not merge without owner authorization.
 - Keep runtime Node ESM with standard library only. FFmpeg/FFprobe are explicit optional system dependencies, required for media operations.

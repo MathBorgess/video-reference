@@ -200,6 +200,17 @@ test("revisions are immutable and reads include transitive dependencies", async 
   const first = await lib.save(f.root, a);
   assert.equal(first.status, "complete");
   const selected = await lib.read(f.root, f.r.id, { layers: "audio" });
+  assert.equal(selected.mandates.editor, "remotion");
+  assert.equal(selected.mandates.preserveSourceColor, true);
+  assert.equal(selected.mandates.mandatoryTranscode, false);
+  const packet = await lib.handoff(f.root, f.r.id, {target:"remotion", layers:"audio"});
+  assert.equal(packet.target,"remotion");
+  const savedPacket = await json(path.join(f.root, packet.directory, "packet.json"));
+  assert.deepEqual(savedPacket.mandates, packet.mandates);
+  assert.deepEqual(packet.mandates, selected.mandates);
+  assert.equal(packet.mandates.width,1080);
+  assert.equal(packet.mandates.height,1920);
+  await assert.rejects(lib.handoff(f.root, f.r.id, {target:"hyperframes"}), {code:"invalid_target"});
   assert.deepEqual(selected.events.map((e) => e.id).sort(), [
     "caption",
     "chart",

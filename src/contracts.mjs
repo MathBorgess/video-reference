@@ -167,7 +167,7 @@ export const commands = {
       "dry-run",
     ],
     effect:
-      "Write a pinned HyperFrames direction packet. Changed dependencies require a decision.",
+      "Write a pinned Remotion direction packet. Changed dependencies require a decision.",
   },
   decide: {
     args: ["handoff-id", "approval-json-file"],

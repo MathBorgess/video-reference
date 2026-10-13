@@ -1,7 +1,7 @@
 {
   "name": "@mathborgess/video-reference",
   "version": "0.1.0",
-  "description": "Local video reference libraries and HyperFrames direction for agents",
+  "description": "Local video reference libraries and Remotion direction for agents",
   "type": "module",
   "bin": {
     "video-reference": "bin/video-reference.mjs"
