@@ -8,7 +8,7 @@ The CLI prepares and stores evidence. Your current agent interprets the video us
 
 Requires Node.js 22+. Media ingestion and inspection require `ffmpeg` and `ffprobe` on PATH. Install those through your platform's package manager; `doctor` reports availability without installing anything.
 
-During initial review, the implementation is on `codex/initial-cli`. After its PR merges, use `main` instead:
+Use the published implementation on `main`:
 
 ```bash
 git clone --branch main https://github.com/MathBorgess/video-reference.git
