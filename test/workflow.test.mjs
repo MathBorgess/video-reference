@@ -210,6 +210,14 @@ test("revisions are immutable and reads include transitive dependencies", async 
   assert.deepEqual(packet.mandates, selected.mandates);
   assert.equal(packet.mandates.width,1080);
   assert.equal(packet.mandates.height,1920);
+  assert.equal(packet.mandates.version, 2);
+  assert.equal(packet.mandates.editorialQuality.storyboard.required, true);
+  assert.equal(packet.mandates.editorialQuality.speechCleanup.requiredReview, true);
+  const direction = await fs.readFile(path.join(f.root, packet.directory, "DIRECTION.md"), "utf8");
+  assert.match(direction, /## Editorial quality/);
+  assert.match(direction, /before\/removed\/after speech/);
+  assert.match(direction, /intentional repetition/);
+  assert.match(direction, /author's CTA/);
   await assert.rejects(lib.handoff(f.root, f.r.id, {target:"hyperframes"}), {code:"invalid_target"});
   assert.deepEqual(selected.events.map((e) => e.id).sort(), [
     "caption",
@@ -232,6 +240,18 @@ test("revisions are immutable and reads include transitive dependencies", async 
   const matches = await lib.search(f.root, "chart", { limit: 1 });
   assert.equal(matches.total, 1);
   assert.equal(matches.matches[0].revision, second.revision);
+});
+test("production requirements are discoverable without a project or media operation", () => {
+  const p = spawnSync(process.execPath, [cli, "schema", "production"], { encoding: "utf8" });
+  assert.equal(p.status, 0, p.stderr);
+  const result = JSON.parse(p.stdout);
+  assert.equal(result.status, "complete");
+  assert.deepEqual(result.data, lib.PRODUCTION_MANDATES);
+  assert.equal(result.data.mandatoryTranscriptCutGate, false);
+  assert.equal(result.data.mandatoryTranscode, false);
+  assert.deepEqual(result.data.editorialQuality.verification.states, ["pass", "fail", "unverified"]);
+  assert.match(result.data.editorialQuality.cta.authorship, /absent\/not applicable/);
+  assert.match(result.data.editorialQuality.milestones.brand, /not a universal style/);
 });
 test("coverage gaps, bad times, evidence and relations cannot claim completeness", async (t) => {
   const f = await fixture(t);

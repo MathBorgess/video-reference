@@ -1,6 +1,6 @@
 {
   "name": "@mathborgess/video-reference",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Local video reference libraries and Remotion direction for agents",
   "type": "module",
   "bin": {

@@ -182,7 +182,7 @@ export const commands = {
       "Verify source, evidence, revision and handoff integrity. No visual-quality claim.",
   },
   schema: {
-    args: ["command-or-analysis-or-adaptation-or-approval"],
+    args: ["command-or-analysis-or-adaptation-or-approval-or-production"],
     flags: [],
     effect: "Read a contract.",
   },
