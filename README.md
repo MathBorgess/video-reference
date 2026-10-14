@@ -50,6 +50,8 @@ Changing a connected event or combining references returns `confirmation_require
 
 `handoffs/<id>/DIRECTION.md` and `packet.json` carry detailed Remotion direction. They do not create an approved BRIEF or executable composition. Relative media paths resolve from the library root, not the handoff directory. Keep the project folder together when moving it.
 
+For production, `video-reference schema production` exposes the requirements carried by recovery and handoffs: print-and-speech storyboard, stronger relevant milestones/CTA, reversible speech-cleanup review, shared clocks and separate verification states. See [editorial review](docs/editorial-review.md). Concrete effects remain project choices; this CLI does not automatically assess video quality or require a new transcript/cut approval stage.
+
 ## Agent interface
 
 - Start with `--help`, `<command> --help` and `schema <command>`. The skill teaches audiovisual judgment, not a second syntax manual.

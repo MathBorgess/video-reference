@@ -8,7 +8,8 @@ import {
 import { project, json, error } from "../src/storage.mjs";
 import * as library from "../src/library.mjs";
 import { doctor } from "../src/media.mjs";
-const version = "0.1.0";
+import { PRODUCTION_MANDATES } from "../src/production.mjs";
+const version = "0.2.0";
 function emit(status, data) {
   process.stdout.write(
     JSON.stringify(
@@ -24,7 +25,7 @@ function help(command) {
       "Preserve and retrieve local video references for detailed Remotion direction.",
     usage: "video-reference <command> [args] --project <directory>",
     commands: command ? { [command]: commands[command] } : commands,
-    next: "doctor → init → ingest → inspect → template → agent analysis → save → search/read → handoff. Use schema analysis for the document contract. Load the video-reference skill for interpretation; extraction is not analysis.",
+    next: "doctor → init → ingest → inspect → template → agent analysis → save → search/read → handoff. Use schema analysis for observations and schema production for storyboard, milestone, CTA and speech-cleanup requirements. Load the video-reference skill for interpretation; extraction is not analysis.",
     skill:
       "https://github.com/MathBorgess/skills-catalog/tree/main/skills/creativity/video-reference",
     exitCodes: {
@@ -98,6 +99,7 @@ try {
       analysis: analysisSchema,
       adaptation: adaptationSchema,
       approval: approvalSchema,
+      production: PRODUCTION_MANDATES,
     };
     result = schemas[name] ?? commands[name];
     if (!result) throw error("usage_error", "Unknown schema");
